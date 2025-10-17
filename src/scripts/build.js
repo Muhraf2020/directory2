@@ -6,6 +6,7 @@ import { getStates, getCitiesByState, getStoresByCity, getAllStores } from './su
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const OUTPUT_DIR = path.join(__dirname, '../../public');
+const BASE_PATH = '/directory2'; // GitHub Pages base path
 
 // Ensure output directory exists
 async function ensureDir(dir) {
@@ -40,7 +41,7 @@ async function generateHomepage() {
           <span>${state.city_count} cities</span>
         </div>
       </div>
-      <a href="/scratch-and-dent-appliances/${state.slug}" class="btn-primary">View Directory</a>
+      <a href="${BASE_PATH}/scratch-and-dent-appliances/${state.slug}" class="btn-primary">View Directory</a>
     </div>
   `).join('');
   
@@ -66,7 +67,7 @@ async function generateStatePages() {
           <h3>${city.name}</h3>
           <p class="city-count">${city.store_count} stores</p>
         </div>
-        <a href="/scratch-and-dent-appliances/${state.slug}/${city.slug}" class="btn-secondary">View Stores</a>
+        <a href="${BASE_PATH}/scratch-and-dent-appliances/${state.slug}/${city.slug}" class="btn-secondary">View Stores</a>
       </div>
     `).join('');
     
@@ -102,7 +103,7 @@ async function generateCityPages(state, cities) {
           ${store.phone ? `<p><strong>📞 Phone:</strong> <a href="tel:${store.phone}">${store.phone}</a></p>` : ''}
           ${store.website ? `<p><strong>🌐 Website:</strong> <a href="${store.website}" target="_blank" rel="noopener">Visit Website</a></p>` : ''}
         </div>
-        <a href="/stores/${store.id}" class="btn-primary">View Details</a>
+        <a href="${BASE_PATH}/stores/${store.id}" class="btn-primary">View Details</a>
       </div>
     `).join('');
     
