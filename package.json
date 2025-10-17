@@ -1,0 +1,18 @@
+{
+  "name": "scratch-dent-directory",
+  "version": "1.0.0",
+  "description": "Scratch and Dent Appliance Store Directory",
+  "type": "module",
+  "scripts": {
+    "build": "node src/scripts/build.js",
+    "dev": "node src/scripts/build.js && npx http-server public -p 8080"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "author": "",
+  "license": "MIT"
+}
